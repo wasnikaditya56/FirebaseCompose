@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "742047464115",
+    "project_id": "fir-compose-24700",
+    "storage_bucket": "fir-compose-24700.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742047464115:android:9b038e98068c3f4d98cec6",
+        "android_client_info": {
+          "package_name": "com.aditya.a.wasnik.firebasecompose"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeWZLNk65gHSUOs7zv3UaXm5JmpC10Zos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
