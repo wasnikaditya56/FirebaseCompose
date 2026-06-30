@@ -85,4 +85,8 @@ class AuthRepository {
                 onError(it.message ?: "Error")
             }
     }
+
+    fun logout() {
+        auth.signOut()
+    }
 }

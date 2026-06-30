@@ -27,7 +27,7 @@ fun NavGraph() {
         }
 
         composable("home") {
-            HomeScreen()
+            HomeScreen(navController)
         }
     }
 }
