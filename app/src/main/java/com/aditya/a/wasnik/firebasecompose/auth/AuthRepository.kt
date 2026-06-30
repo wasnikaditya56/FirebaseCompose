@@ -70,4 +70,19 @@ class AuthRepository {
                 onError(it.message ?: "Signup failed")
             }
     }
+
+    fun forgotPassword(
+        email: String,
+        onSuccess: () -> Unit,
+        onError: (String) -> Unit
+    ) {
+        FirebaseAuth.getInstance()
+            .sendPasswordResetEmail(email)
+            .addOnSuccessListener {
+                onSuccess()
+            }
+            .addOnFailureListener {
+                onError(it.message ?: "Error")
+            }
+    }
 }

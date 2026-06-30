@@ -94,8 +94,21 @@ fun LoginScreen(
             }
         )
         Spacer(Modifier.height(20.dp))
-        Button(
 
+        TextButton(
+            onClick = {
+                if(email.isNotBlank()) {
+                    viewModel.forgotPassword(email)
+                } else {
+                    Toast.makeText(context, "Please enter your email first", Toast.LENGTH_SHORT).show()
+                }
+            }
+        ) {
+            Text("Forgot Password?")
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Button(
             onClick = {
                 val error = viewModel.validateInput(email, password)
 

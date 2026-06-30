@@ -82,4 +82,16 @@ class AuthViewModel : ViewModel() {
 
         return null
     }
+
+    fun forgotPassword(email:String) {
+        repository.forgotPassword(
+            email,
+            {
+                message = "Password reset email sent."
+            },
+            {
+                message = it
+            }
+        )
+    }
 }
