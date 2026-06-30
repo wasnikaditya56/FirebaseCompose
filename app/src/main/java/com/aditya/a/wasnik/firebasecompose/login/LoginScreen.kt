@@ -1,5 +1,7 @@
 package com.aditya.a.wasnik.firebasecompose.login
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -16,6 +18,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,8 +31,9 @@ fun LoginScreen(
     viewModel: AuthViewModel = viewModel()
 ) {
 
-    var email by remember { mutableStateOf("")}
-    var password by remember {mutableStateOf("")}
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    val context: Context = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -65,6 +69,13 @@ fun LoginScreen(
         Spacer(Modifier.height(20.dp))
         Button(
             onClick = {
+                val error = viewModel.validateInput(email, password)
+
+                if (error != null) {
+                    Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+                    return@Button
+                }
+
                 viewModel.login(
                     email,
                     password
