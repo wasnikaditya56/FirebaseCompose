@@ -27,93 +27,53 @@ fun SignupScreen(
     navController: NavController,
     viewModel: AuthViewModel = viewModel()
 ) {
-
     var email by remember { mutableStateOf("")}
-
     var password by remember { mutableStateOf("")}
 
     Column(
-
         modifier = Modifier
             .fillMaxSize()
             .padding(20.dp),
-
         verticalArrangement = Arrangement.Center
-
     ) {
-
         Text(
             "Signup",
             fontSize = 30.sp
         )
-
         Spacer(Modifier.height(20.dp))
-
         OutlinedTextField(
-
             value = email,
-
             onValueChange = {
-
                 email = it
-
             },
-
             label = {
-
                 Text("Email")
-
             }
-
         )
-
         Spacer(Modifier.height(10.dp))
-
         OutlinedTextField(
-
             value = password,
-
             onValueChange = {
-
                 password = it
-
             },
-
             label = {
-
                 Text("Password")
-
             },
-
             visualTransformation = PasswordVisualTransformation()
-
         )
-
         Spacer(Modifier.height(20.dp))
-
         Button(
-
             onClick = {
-
                 viewModel.signup(
                     email,
                     password
                 ) {
-
                     navController.navigate("home")
-
                 }
-
             }
-
         ) {
-
             Text("Signup")
-
         }
-
         Text(viewModel.message)
-
     }
-
 }

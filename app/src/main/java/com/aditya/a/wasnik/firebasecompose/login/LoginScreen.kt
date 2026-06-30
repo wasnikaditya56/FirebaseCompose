@@ -29,102 +29,59 @@ fun LoginScreen(
 ) {
 
     var email by remember { mutableStateOf("")}
-
     var password by remember {mutableStateOf("")}
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(20.dp),
-
         verticalArrangement = Arrangement.Center
     ) {
-
         Text(
             "Login",
             fontSize = 30.sp
         )
-
         Spacer(Modifier.height(20.dp))
-
         OutlinedTextField(
-
             value = email,
-
             onValueChange = {
-
                 email = it
-
             },
-
             label = {
-
                 Text("Email")
-
             }
         )
-
         Spacer(Modifier.height(10.dp))
-
         OutlinedTextField(
-
             value = password,
-
             onValueChange = {
-
                 password = it
-
             },
-
             label = {
-
                 Text("Password")
-
             },
-
             visualTransformation = PasswordVisualTransformation()
-
         )
-
         Spacer(Modifier.height(20.dp))
-
         Button(
-
             onClick = {
-
                 viewModel.login(
                     email,
                     password
                 ) {
-
                     navController.navigate("home")
-
                 }
-
             }
-
         ) {
-
             Text("Login")
-
         }
-
         TextButton(
-
             onClick = {
-
                 navController.navigate("signup")
-
             }
-
         ) {
-
             Text("Create Account")
-
         }
-
         Text(viewModel.message)
-
     }
-
 }
