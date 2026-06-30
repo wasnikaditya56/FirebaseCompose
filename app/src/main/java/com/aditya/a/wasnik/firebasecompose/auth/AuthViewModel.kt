@@ -10,6 +10,9 @@ class AuthViewModel : ViewModel() {
 
     private val repository = AuthRepository()
 
+    var isLoading by mutableStateOf(false)
+    private set
+
     var message by mutableStateOf("")
         private set
 
@@ -18,11 +21,18 @@ class AuthViewModel : ViewModel() {
         password: String,
         onSuccess: () -> Unit
     ) {
+
+        isLoading = true
         repository.login(
             email,
             password,
-            onSuccess
+            {
+                isLoading = false
+                onSuccess()
+            }
+
         ) {
+            isLoading = false
             message = it
         }
     }

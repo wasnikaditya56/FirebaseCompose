@@ -65,4 +65,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation("androidx.compose.material3:material3")
     implementation("com.google.firebase:firebase-firestore")
+
+    // Add this line for Extended Material Icons
+    implementation("androidx.compose.material:material-icons-extended")
+
 }
